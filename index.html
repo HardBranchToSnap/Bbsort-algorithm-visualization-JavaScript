@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bbsort visualization</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="user-info">
+    <h1 class="user-info title">Визуализация алгоритма сортировки "пузырьком"</h1>
+      <div>
+          <p>Наглядно отсортирует ваш список чисел. Вы можете добавлять и удалять его элементы, либо сгенерировать случайный список (кнопка "Сгенерировать"). Кнопка "Сортировать" запустит визуализацию</p>
+      </div>
+  </div>
+  <main class="content">
+    <div class="user-form">
+      <!-- <input class="insert-el" type="text"> -->
+  
+    <p style="color: gray">Вводите придуманные вами числа в поле ниже и отправляйте их в список при помощи клавиши Enter или кнопки Добавить</p>
+      <div class="input-group">
+        <input type="text" class="insert-el">
+        <button class="add-el">Добавить</button>
+      </div>
+      <button class="generate-random">Сгенерировать</button>
+      <button class="do-sort">Сортировать</button>
+    </div>
+  </main>
+  <div class="added-els"></div>
+
+  <script src="js/settings.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/support.js"></script>
+  <script src="js/action.js"></script>
+  <script src="js/sort.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

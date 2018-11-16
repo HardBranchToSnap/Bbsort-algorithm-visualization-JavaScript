@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.unvisible {
+  visibility: hidden;
+}
+
+.content {
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  align-content: center; 
+  justify-content: center; 
+  overflow: auto;
+  overflow: hidden;
+}
+
+.added-els {
+  height: 300px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.element-wrap {
+  padding: 50px 4px;
+  background: #f5f2f0;
+  border-radius: 100px;
+  margin: 2px;
+  font-size: 15px;
+  transition: all 0.5s ease-in-out;
+  min-width: 40px;
+  display:inline-block;
+  vertical-align:bottom;
+}
+
+.insert-el {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 20px;
+  max-width: 100%;
+  line-height: 40px;
+  cursor: text;
+  font-size: 18px;
+  width: 70%;
+  height: 55px;
+  margin-bottom: 10px;
+}
+
+.user-form,.user-info {
+  width: 100%;
+  text-align: center;
+}
+
+.user-info {
+  background-color: #393a3d;
+  color: white;
+  margin-top: 0px;
+}
+
+.user-info p{
+  font-size: 17px;
+  color: #d3d3d3;
+}
+
+/*Delete hashtag sprite*/
+.delete {
+    background-image: url(img/delete-sprite.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.delete-button {
+    width: 30px;
+    height: 30px;
+    background-position: 0 0;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    width: 30px;
+    height: 30px;
+    background-position: 0 -30px;
+}
+
+
+/*Buttons*/
+.add-el, .generate-random, .do-sort {
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background-color:#f9f9f9;
+  border-radius: 20px;
+  text-indent:0;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  color:#454345;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  font-style:normal;
+  height:65px;
+  line-height:65px;
+  width:131px;
+  text-decoration:none;
+  text-align:center;
+  text-shadow:1px 1px 0px #d1d1d1;
+  cursor: pointer;
+}
+.add-el:hover, .generate-random:hover, .do-sort:hover {
+  background-color:#e9e9e9;
+}
+.add-el:active, .generate-random:active, .do-sort:active {
+  position:relative;
+  top:1px;
+}
