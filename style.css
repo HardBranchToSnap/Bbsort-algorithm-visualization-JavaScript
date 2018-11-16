@@ -76,6 +76,10 @@ body {
   color: #d3d3d3;
 }
 
+.help-info {
+  color: gray;
+}
+
 /*Delete hashtag sprite*/
 .delete {
     background-image: url(img/delete-sprite.png);
