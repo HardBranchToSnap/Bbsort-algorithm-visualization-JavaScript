@@ -13,49 +13,50 @@
                 return el.domId == thisEl.id;
             }), 1);
 
-            if(window.Global.Data.arr.length > 0){
-              window.Support.setSpansPropertyes();
+            if (window.Global.Data.arr.length > 0) {
+                window.Support.setSpansPropertyes();
             }
         }
     };
 
 
     var validateValue = function() {
-      var integerValue = parseInt(window.Global.Element.NEW_ELEMENT_INPUT.value);
-      
-      // Проверяет на регулярку
-      if (!NUMBERS_REGEXP.test(integerValue)) {
-          return window.Support.displayError(window.Global.ErrorMessage.MISSING_PATTERN);
-      }
+        var integerValue = parseInt(window.Global.Element.NEW_ELEMENT_INPUT.value);
 
-      window.Support.addElement(integerValue);
+        // Проверяет на регулярку
+        if (!NUMBERS_REGEXP.test(integerValue)) {
+            return window.Support.displayError(window.Global.ErrorMessage.MISSING_PATTERN);
+        }
+
+        window.Support.addElement(integerValue);
     };
 
     var generateRandom = function() {
-      window.Support.clearElements();
+        window.Global.Data.arr = [];
+        window.Support.clearElements();
 
-      var rndArr = [];
+        var rndArr = [];
 
-      for(i=0; i< window.Settings.RANDOM_ARRAY_LENGTH; i++){
-        var randomNumber = Math.floor(Math.random() * Math.floor(window.Settings.MAXIMAL_RANDOM_NUMBER));
-        rndArr.push(randomNumber);
-      }
+        for (i = 0; i < window.Settings.RANDOM_ARRAY_LENGTH; i++) {
+            var randomNumber = Math.floor(Math.random() * Math.floor(window.Settings.MAXIMAL_RANDOM_NUMBER));
+            rndArr.push(randomNumber);
+        }
 
-      rndArr.forEach(window.Support.addElement);
+        rndArr.forEach(window.Support.addElement);
 
     };
 
-    var changeDomBeforeSort = function(){
-      window.Support.toggleCloseButtons();
-      window.Support.toggleButtonsField();
-      // Запуск сортировки
-      window.bbsort();
+    var changeDomBeforeSort = function() {
+        window.Support.toggleCloseButtons();
+        window.Support.toggleButtonsField();
+        // Запуск сортировки
+        window.bbsort();
     };
 
-    window.Global.Element.NEW_ELEMENT_INPUT.addEventListener('keydown', function(evt){
-      if(evt.keyCode == KEY_CODE_ENTER){
-        validateValue();
-      }
+    window.Global.Element.NEW_ELEMENT_INPUT.addEventListener('keydown', function(evt) {
+        if (evt.keyCode == KEY_CODE_ENTER) {
+            validateValue();
+        }
     });
     window.Global.Element.ADD_EL_BUTTON.addEventListener('click', validateValue);
     window.Global.Element.ELEMENTS_CONTAINER.addEventListener('click', removeElement);

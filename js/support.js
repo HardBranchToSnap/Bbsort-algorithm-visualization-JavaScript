@@ -22,7 +22,8 @@
 
             window.Global.Data.arr.push({
                 domId: elId,
-                value: integerValue
+                value: integerValue,
+                moved: 0
             });
 
             window.Support.setSpansPropertyes();
@@ -30,33 +31,22 @@
             window.Global.Element.NEW_ELEMENT_INPUT.value = '';
         },
 
+        // Устанавливает оттенок и высоту сортируемого элемента,
+        // относительно самому большому по значению
         setSpansPropertyes: function() {
-            var percentsProperty = {};
-
-            // Узнаёт наибольшее значение в массиве данных
             var bigestValue = window.Global.Data.arr.map(function(el) {
                 return el.value;
             }).sort(function(a, b) {
                 return b - a;
             })[0];
 
-            // Вычисляет проценты от наибольшего элемента в массиве
-            // и сохраняет в свойства
-            window.Global.Data.arr.forEach(function(el, i) {
+            window.Global.Data.arr.forEach(function(el) {
                 var percentFromBigest = el.value * 100 / bigestValue;
 
-                percentsProperty[i] = percentFromBigest;
+                var thisEl = document.querySelector('#' + el.domId);
+                thisEl.style.backgroundColor = 'hsl(' + percentFromBigest + ', 50%, 50%)';
+                thisEl.style.height = percentFromBigest + '%';
             });
-
-            // Перебирает псевдо-массив dom-элементов
-            // и устанавливает цвета и размеры
-            var pseudoArrayElements = document.querySelectorAll('.element-wrap');
-
-            for (i = 0; i < pseudoArrayElements.length; i++) {
-                pseudoArrayElements[i].style.backgroundColor = 'hsl(' + (percentsProperty[i]) + ', 50%, 50%)';
-
-                pseudoArrayElements[i].style.height = percentsProperty[i] + '%';
-            }
         },
 
         // Удаляет все стили после каждого тика алгоритма
@@ -69,15 +59,13 @@
         },
 
         // Удаляет дочерние ноды у контейнера элементов
-        // и чистит глобальный массив данных
         clearElements: function() {
-            window.Global.Data.arr = [];
-
             while (Global.Element.ELEMENTS_CONTAINER.firstChild) {
                 Global.Element.ELEMENTS_CONTAINER.removeChild(Global.Element.ELEMENTS_CONTAINER.firstChild);
             }
         },
 
+        /* Переключатели видимости элементов */
         toggleCloseButtons: function() {
             var closeButtons = document.querySelectorAll('.delete');
             for (i = 0; i < closeButtons.length; i++) {
