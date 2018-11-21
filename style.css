@@ -23,7 +23,7 @@ body {
      height: 300px;
      text-align: center;
      margin-top: 20px;
-     white-space: nowrap
+     white-space: nowrap 
 }
  .element-wrap {
      padding: 50px 4px;
@@ -35,6 +35,9 @@ body {
      min-width: 40px;
      display:inline-block;
      vertical-align:bottom;
+}
+ .user-form-rest-action-buttons{
+     height: 80px;
 }
  .insert-el {
      background-color: #fff;
@@ -117,4 +120,9 @@ body {
  .add-el:active, .generate-random:active, .do-sort:active, .delete-all:hover{
      position:relative;
      top:1px;
+}
+/*Outline focus*/
+ .insert-el:focus, .add-el:focus, .generate-random:focus, .do-sort:focus {
+     outline: 0;
+     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
