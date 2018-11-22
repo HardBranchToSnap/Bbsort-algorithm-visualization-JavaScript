@@ -2,19 +2,22 @@
     window.Support = {
         createElementSpan: function(integerValue, elId, noCrossButton) {
             // Создание спана элемента
-            var newEl = document.createElement('span');
+            var newEl = document.createElement('div');
             newEl.classList.add('element-wrap');
-            newEl.textContent = integerValue;
             newEl.id = elId;
+            
+            var spanEl = document.createElement('span');
+            spanEl.classList.add('el-span');
+            spanEl.textContent = integerValue;
 
             window.Global.Element.ELEMENTS_CONTAINER.appendChild(newEl);
-
             // Создание кнопки удаления на спане
               if(!noCrossButton){
                 var deleteButton = document.createElement('i');
                 deleteButton.classList.add('delete', 'delete-button');
                 newEl.appendChild(deleteButton);
               }
+            newEl.appendChild(spanEl);
         },
 
         addElement: function(integerValue) {
@@ -48,6 +51,12 @@
                 var thisEl = document.querySelector('#' + el.domId);
                 thisEl.style.backgroundColor = 'hsl(' + percentFromBigest + ', 50%, 50%)';
                 thisEl.style.height = percentFromBigest + '%';
+
+                var thisSpan = thisEl.querySelector('.el-span');
+
+                // Задаём фиксированную ширину
+                thisEl.style.width = (thisSpan.offsetWidth) + 'px';
+                thisSpan.style.right = ((thisEl.offsetWidth - thisSpan.offsetWidth) / 2 ) + 'px';  
             });
         },
 

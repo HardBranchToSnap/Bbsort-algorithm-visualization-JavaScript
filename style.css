@@ -29,14 +29,24 @@ body {
  .element-wrap {
      padding: 50px 4px;
      background: #f5f2f0;
-     border-radius: 100px;
+     border-radius: 100px 100px 50px 50px;
      margin: 2px;
-     font-size: 15px;
      transition: all 0.5s ease-in-out;
      min-width: 40px;
+     min-height: 10px;
      display:inline-block;
      vertical-align:bottom;
+     position:relative;
 }
+
+.el-span {
+    position:absolute;
+    bottom:3px;
+    right:0;
+    font-size: 25px;
+    text-shadow: 1px 1px 2px white;
+}
+
  .user-form-rest-action-buttons{
      height: 80px;
 }
