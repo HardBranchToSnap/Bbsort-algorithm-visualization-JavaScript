@@ -82,10 +82,6 @@
             userForm.classList.toggle('hidden');
         },
 
-        displayError: function(message) {
-            alert(message);
-        },
-
         clearTimeouts: function(){
           // Set a fake timeout to get the highest timeout id
           var highestTimeoutId = setTimeout(';');

@@ -21,14 +21,15 @@
 
 
     var validateValue = function() {
-        var integerValue = parseInt(window.Global.Element.NEW_ELEMENT_INPUT.value);
+        var values = window.Global.Element.NEW_ELEMENT_INPUT.value.split(' ').join('').split(',').map(function(el){
+          return parseInt(el);
+        });
 
-        // Проверяет на регулярку
-        if (!NUMBERS_REGEXP.test(integerValue)) {
-            return window.Support.displayError(window.Global.ErrorMessage.MISSING_PATTERN);
-        }
-
-        window.Support.addElement(integerValue);
+        values.forEach(function(el){
+          if (NUMBERS_REGEXP.test(el)) {
+            window.Support.addElement(el);
+          }
+        });
     };
 
     var generateRandom = function() {

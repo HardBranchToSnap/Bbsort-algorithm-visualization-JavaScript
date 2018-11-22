@@ -26,10 +26,6 @@
             nonsorted: [],
 
             paused: 0
-        },
-
-        ErrorMessage: {
-            MISSING_PATTERN: 'Вы должны добавить число'
         }
     };
 }());

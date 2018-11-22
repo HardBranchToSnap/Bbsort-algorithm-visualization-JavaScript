@@ -55,6 +55,7 @@
 
             window.Support.setSpansPropertyes();
             window.Support.toggleButtonsField();
+            window.Support.toggleSortingOptions();
 
             // Сбрасываем счётчик состояний для пауз
             window.Global.Data.paused = 0;
