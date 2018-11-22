@@ -98,6 +98,12 @@
         togglePauseContinue: function(){
           window.Global.Element.CONTINUE_SORT_BUTTON.classList.toggle('unvisible');
           window.Global.Element.PAUSE_SORT_BUTTON.classList.toggle('unvisible');
+        },
+
+        changeSpeed: {
+          '0': function(){ window.Settings.ONE_TICK_TIME = 500; },
+          '1': function(){ window.Settings.ONE_TICK_TIME = 1000; },
+          '2': function(){ window.Settings.ONE_TICK_TIME = 1500; },
         }
     };
 }());

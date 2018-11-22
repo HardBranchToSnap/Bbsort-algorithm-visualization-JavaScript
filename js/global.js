@@ -9,7 +9,9 @@
             STOP_SORT_BUTTON: document.querySelector('.stop-sort'),
             PAUSE_SORT_BUTTON: document.querySelector('.pause-sort'),
             CONTINUE_SORT_BUTTON: document.querySelector('.continue-sort'),
-            SORTING_OPTIONS: document.querySelector('.sorting-options')
+            SORTING_OPTIONS: document.querySelector('.sorting-options'),
+            SPEED_BUTTON: document.querySelector('.speed-button'),
+            SPEED_FILTER: document.querySelector('.speed')
         },
 
         Data: {

@@ -108,4 +108,15 @@
     window.Global.Element.STOP_SORT_BUTTON.addEventListener('click', stopSorting);
     window.Global.Element.PAUSE_SORT_BUTTON.addEventListener('click', pauseSorting);
     window.Global.Element.CONTINUE_SORT_BUTTON.addEventListener('click', continueSorting);
+
+    window.Global.Element.SPEED_BUTTON.addEventListener('click', function(evt){
+      window.Global.Element.SPEED_FILTER.style.display = null;
+      evt.currentTarget.style.display = 'none';
+    });
+
+    window.Global.Element.SPEED_FILTER.addEventListener('change', function(evt){
+      var selectedFilter = evt.target.value;
+
+      window.Support.changeSpeed[selectedFilter]();
+    });
 }());
