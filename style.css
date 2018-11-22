@@ -74,10 +74,12 @@ body {
      background-color: #393a3d;
      color: white;
      margin-top: 0px;
+     padding-top: 5px;
 }
  .user-info p{
      font-size: 17px;
      color: #d3d3d3;
+     padding-bottom: 15px;
 }
  .help-info {
      color: gray;
