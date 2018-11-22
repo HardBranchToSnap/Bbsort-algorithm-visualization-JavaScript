@@ -89,13 +89,12 @@ body {
 }
 
 .speed {
-  background-color: #f9f9f9;
+    background-color: #f9f9f9;
     border-radius: 20px;
     text-indent: 0;
     border: 1px solid #dcdcdc;
     display: inline-block;
     color: #454345;
-    /* height: 20px; */
     padding-top: 22px;
     padding-bottom: 20px;
     padding-right: 5px;

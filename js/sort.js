@@ -1,7 +1,7 @@
 (function() {
     window.bbsort = function() {
         window.Global.Data.nonsorted = window.Global.Data.arr.slice('');
-        
+
         var sortedCouples = [];
 
         var arr = window.Global.Data.arr;
@@ -12,7 +12,11 @@
                 var isBigger = arr[j - 1].value > arr[j].value;
                 // Добавляет сортировочные пары и состояния сортировки
                 // в массив, который в будущем попадёт в визуализацию
-                sortedCouples.push({left: arr[j - 1], right: arr[j], isBigger: isBigger});
+                sortedCouples.push({
+                    left: arr[j - 1],
+                    right: arr[j],
+                    isBigger: isBigger
+                });
                 if (isBigger) {
                     var temp = arr[j - 1];
                     arr[j - 1] = arr[j];

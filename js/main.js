@@ -21,14 +21,14 @@
 
 
     var validateValue = function() {
-        var values = window.Global.Element.NEW_ELEMENT_INPUT.value.split(' ').join('').split(',').map(function(el){
-          return parseInt(el);
+        var values = window.Global.Element.NEW_ELEMENT_INPUT.value.split(' ').join('').split(',').map(function(el) {
+            return parseInt(el);
         });
 
-        values.forEach(function(el){
-          if (NUMBERS_REGEXP.test(el)) {
-            window.Support.addElement(el);
-          }
+        values.forEach(function(el) {
+            if (NUMBERS_REGEXP.test(el)) {
+                window.Support.addElement(el);
+            }
         });
     };
 
@@ -48,16 +48,16 @@
     };
 
     var changeDomBeforeSort = function() {
-        if(window.Global.Data.arr.length > 0){
-          window.Support.toggleCloseButtons();
-          window.Support.toggleButtonsField();
-          window.Support.toggleSortingOptions();
+        if (window.Global.Data.arr.length > 0) {
+            window.Support.toggleCloseButtons();
+            window.Support.toggleButtonsField();
+            window.Support.toggleSortingOptions();
 
-          if (window.Global.Element.PAUSE_SORT_BUTTON.classList.contains('hidden')){
-            window.Support.togglePauseContinue();
-          }
-          // Запуск сортировки
-          window.bbsort();
+            if (window.Global.Element.PAUSE_SORT_BUTTON.classList.contains('hidden')) {
+                window.Support.togglePauseContinue();
+            }
+            // Запуск сортировки
+            window.bbsort();
         }
     };
 
@@ -97,14 +97,14 @@
     window.Global.Element.PAUSE_SORT_BUTTON.addEventListener('click', pauseSorting);
     window.Global.Element.CONTINUE_SORT_BUTTON.addEventListener('click', continueSorting);
 
-    window.Global.Element.SPEED_BUTTON.addEventListener('click', function(evt){
-      window.Global.Element.SPEED_FILTER.style.display = null;
-      evt.currentTarget.style.display = 'none';
+    window.Global.Element.SPEED_BUTTON.addEventListener('click', function(evt) {
+        window.Global.Element.SPEED_FILTER.style.display = null;
+        evt.currentTarget.style.display = 'none';
     });
 
-    window.Global.Element.SPEED_FILTER.addEventListener('change', function(evt){
-      var selectedFilter = evt.target.value;
+    window.Global.Element.SPEED_FILTER.addEventListener('change', function(evt) {
+        var selectedFilter = evt.target.value;
 
-      window.Support.changeSpeed[selectedFilter]();
+        window.Support.changeSpeed[selectedFilter]();
     });
 }());

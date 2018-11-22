@@ -5,18 +5,18 @@
             var newEl = document.createElement('div');
             newEl.classList.add('element-wrap');
             newEl.id = elId;
-            
+
             var spanEl = document.createElement('span');
             spanEl.classList.add('el-span');
             spanEl.textContent = integerValue;
 
             window.Global.Element.ELEMENTS_CONTAINER.appendChild(newEl);
             // Создание кнопки удаления на спане
-              if(!noCrossButton){
+            if (!noCrossButton) {
                 var deleteButton = document.createElement('i');
                 deleteButton.classList.add('delete', 'delete-button');
                 newEl.appendChild(deleteButton);
-              }
+            }
             newEl.appendChild(spanEl);
         },
 
@@ -57,7 +57,7 @@
                 // Задаём фиксированную ширину колонки
                 thisEl.style.width = (thisSpan.offsetWidth) + 'px';
                 // Задаём правильные отступы спан-цифр
-                thisSpan.style.right = ((thisEl.offsetWidth - thisSpan.offsetWidth) / 2 ) + 'px';  
+                thisSpan.style.right = ((thisEl.offsetWidth - thisSpan.offsetWidth) / 2) + 'px';
             });
         },
 
@@ -83,7 +83,7 @@
 
             // Удаляем все dom-сортировки
             window.Support.clearElements();
-            
+
             window.Global.Data.arr = window.Global.Data.nonsorted.slice('');
 
             window.Global.Data.arr.forEach(function(el) {
@@ -109,28 +109,34 @@
             userForm.classList.toggle('hidden');
         },
 
-        clearTimeouts: function(){
-          // Set a fake timeout to get the highest timeout id
-          var highestTimeoutId = setTimeout(';');
-          // clear all timeouts with an id between 0 and highestTimeoutId
-            for (var i = 0 ; i < highestTimeoutId ; i++) {
-                clearTimeout(i); 
+        clearTimeouts: function() {
+            // Set a fake timeout to get the highest timeout id
+            var highestTimeoutId = setTimeout(';');
+            // clear all timeouts with an id between 0 and highestTimeoutId
+            for (var i = 0; i < highestTimeoutId; i++) {
+                clearTimeout(i);
             }
         },
 
-        toggleSortingOptions: function(){
-          window.Global.Element.SORTING_OPTIONS.classList.toggle('hidden');
+        toggleSortingOptions: function() {
+            window.Global.Element.SORTING_OPTIONS.classList.toggle('hidden');
         },
 
-        togglePauseContinue: function(){
-          window.Global.Element.CONTINUE_SORT_BUTTON.classList.toggle('hidden');
-          window.Global.Element.PAUSE_SORT_BUTTON.classList.toggle('hidden');
+        togglePauseContinue: function() {
+            window.Global.Element.CONTINUE_SORT_BUTTON.classList.toggle('hidden');
+            window.Global.Element.PAUSE_SORT_BUTTON.classList.toggle('hidden');
         },
 
         changeSpeed: {
-          '0': function(){ window.Settings.ONE_TICK_TIME = 500; },
-          '1': function(){ window.Settings.ONE_TICK_TIME = 1000; },
-          '2': function(){ window.Settings.ONE_TICK_TIME = 1500; },
+            '0': function() {
+                window.Settings.ONE_TICK_TIME = 500;
+            },
+            '1': function() {
+                window.Settings.ONE_TICK_TIME = 1000;
+            },
+            '2': function() {
+                window.Settings.ONE_TICK_TIME = 1500;
+            },
         }
     };
 }());

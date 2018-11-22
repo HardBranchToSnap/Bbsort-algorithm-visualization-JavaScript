@@ -25,11 +25,11 @@
                 rightEl.style.transform = 'translate(' + (el.right.moved) + 'px, 0)';
 
                 // Найти индекс левого и правого элементов по id
-                var leftElId = window.Global.Data.nonsorted.findIndex(function(e){
-                  return e.domId == el.left.domId;
+                var leftElId = window.Global.Data.nonsorted.findIndex(function(e) {
+                    return e.domId == el.left.domId;
                 });
-                var rightElId = window.Global.Data.nonsorted.findIndex(function(e){
-                  return e.domId == el.right.domId;
+                var rightElId = window.Global.Data.nonsorted.findIndex(function(e) {
+                    return e.domId == el.right.domId;
                 });
                 // Поменять их местами
                 window.Global.Data.nonsorted[rightElId] = el.left;
