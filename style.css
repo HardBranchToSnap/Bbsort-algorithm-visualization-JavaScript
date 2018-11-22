@@ -33,7 +33,7 @@ body {
      margin: 2px;
      transition: all 0.5s ease-in-out;
      min-width: 40px;
-     min-height: 10px;
+     min-height: 27px;
      display:inline-block;
      vertical-align:bottom;
      position:relative;
@@ -41,7 +41,7 @@ body {
 
 .el-span {
     position:absolute;
-    bottom:3px;
+    bottom:20px;
     right:0;
     font-size: 25px;
     text-shadow: 1px 1px 2px white;
@@ -59,11 +59,10 @@ body {
      color: #555;
      vertical-align: middle;
      border-radius: 20px;
-     max-width: 100%;
      line-height: 40px;
      cursor: text;
      font-size: 20px;
-     width: 25%;
+     width: 250px;
      height: 55px;
      margin-bottom: 10px;
 }
