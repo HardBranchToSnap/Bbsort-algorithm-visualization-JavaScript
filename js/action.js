@@ -9,6 +9,9 @@
             leftEl.style.backgroundColor = window.Settings.NORMAL_TICK_COLOR;
             rightEl.style.backgroundColor = window.Settings.NORMAL_TICK_COLOR;
 
+            // Сохраняем состояние для паузы
+            window.Global.Data.paused += 1;
+
             if (el.isBigger) {
                 leftEl.style.backgroundColor = window.Settings.IS_BIGGER_TICK_COLOR;
 
@@ -20,6 +23,17 @@
                 // Применяем свойства трансформации к сортируемой паре
                 leftEl.style.transform = 'translate(' + (el.left.moved) + 'px, 0)';
                 rightEl.style.transform = 'translate(' + (el.right.moved) + 'px, 0)';
+
+                // Найти индекс левого и правого элементов по id
+                var leftElId = window.Global.Data.nonsorted.findIndex(function(e){
+                  return e.domId == el.left.domId;
+                });
+                var rightElId = window.Global.Data.nonsorted.findIndex(function(e){
+                  return e.domId == el.right.domId;
+                });
+                // Поменять их местами
+                window.Global.Data.nonsorted[rightElId] = el.left;
+                window.Global.Data.nonsorted[leftElId] = el.right;
             }
 
         }, window.Settings.ONE_TICK_TIME * i);
@@ -27,7 +41,7 @@
 
 
     // Действия после сортировки
-    var doAfterSorting = function(ticks) {
+    doAfterSorting = function(ticks) {
         setTimeout(function() {
             // Удаляем все элементы с DOM'а
             window.Support.clearElements();
@@ -41,6 +55,10 @@
 
             window.Support.setSpansPropertyes();
             window.Support.toggleButtonsField();
+
+            // Сбрасываем счётчик состояний для пауз
+            window.Global.Data.paused = 0;
+
         }, window.Settings.ONE_TICK_TIME * ticks);
     };
 

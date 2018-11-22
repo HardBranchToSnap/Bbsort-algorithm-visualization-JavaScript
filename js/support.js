@@ -1,6 +1,6 @@
 (function() {
     window.Support = {
-        createElementSpan: function(integerValue, elId) {
+        createElementSpan: function(integerValue, elId, noCrossButton) {
             // Создание спана элемента
             var newEl = document.createElement('span');
             newEl.classList.add('element-wrap');
@@ -10,9 +10,11 @@
             window.Global.Element.ELEMENTS_CONTAINER.appendChild(newEl);
 
             // Создание кнопки удаления на спане
-            var deleteButton = document.createElement('i');
-            deleteButton.classList.add('delete', 'delete-button');
-            newEl.appendChild(deleteButton);
+              if(!noCrossButton){
+                var deleteButton = document.createElement('i');
+                deleteButton.classList.add('delete', 'delete-button');
+                newEl.appendChild(deleteButton);
+              }
         },
 
         addElement: function(integerValue) {
@@ -82,6 +84,24 @@
 
         displayError: function(message) {
             alert(message);
+        },
+
+        clearTimeouts: function(){
+          // Set a fake timeout to get the highest timeout id
+          var highestTimeoutId = setTimeout(';');
+          // clear all timeouts with an id between 0 and highestTimeoutId
+            for (var i = 0 ; i < highestTimeoutId ; i++) {
+                clearTimeout(i); 
+            }
+        },
+
+        toggleSortingOptions: function(){
+          window.Global.Element.SORTING_OPTIONS.classList.toggle('unvisible');
+        },
+
+        togglePauseContinue: function(){
+          window.Global.Element.CONTINUE_SORT_BUTTON.classList.toggle('unvisible');
+          window.Global.Element.PAUSE_SORT_BUTTON.classList.toggle('unvisible');
         }
     };
 }());

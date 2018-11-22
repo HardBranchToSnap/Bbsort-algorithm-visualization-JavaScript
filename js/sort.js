@@ -1,5 +1,7 @@
 (function() {
     window.bbsort = function() {
+        window.Global.Data.nonsorted = window.Global.Data.arr.slice('');
+        
         var sortedCouples = [];
 
         var arr = window.Global.Data.arr;
@@ -18,6 +20,9 @@
                 }
             }
         }
+        window.copySortedCouples = sortedCouples.slice('');
+        window.finalSorted = window.Global.Data.arr;
+        //console.log(sortedCouples);
         window.action(sortedCouples);
     };
 }());

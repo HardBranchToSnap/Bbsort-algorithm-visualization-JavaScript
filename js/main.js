@@ -43,14 +43,56 @@
         }
 
         rndArr.forEach(window.Support.addElement);
+        console.log(window.Global.Data.arr);
 
     };
 
     var changeDomBeforeSort = function() {
         window.Support.toggleCloseButtons();
         window.Support.toggleButtonsField();
+        window.Support.toggleSortingOptions();
         // Запуск сортировки
         window.bbsort();
+    };
+
+    var breakSorting = function(noCrossButton) {
+        // Удаляем все таймауты с функциями анимаций
+        window.Support.clearTimeouts();
+
+        // Удаляем все dom-сортировки
+        window.Support.clearElements();
+        
+        window.Global.Data.arr = window.Global.Data.nonsorted.slice('');
+
+        window.Global.Data.arr.forEach(function(el) {
+            el.moved = 0;
+            window.Support.createElementSpan(el.value, el.domId, noCrossButton);
+        });
+
+        window.Support.setSpansPropertyes();
+    };
+
+    var stopSorting = function() {
+        // Изменяем видимость элементов
+        window.Support.toggleCloseButtons();
+        window.Support.toggleButtonsField();
+
+        breakSorting();
+        window.Global.Data.paused = 0;
+        window.Support.toggleSortingOptions();
+    };
+
+    var pauseSorting = function() {
+        window.Support.togglePauseContinue();
+        breakSorting(true);
+    };
+
+    var continueSorting = function() {
+        window.Support.togglePauseContinue();
+        window.Global.Data.arr = window.finalSorted;
+        // Начинаем сортировать с места остановки
+        var sortedCouples = window.copySortedCouples.slice(window.Global.Data.paused);
+        window.action(sortedCouples);
     };
 
     window.Global.Element.NEW_ELEMENT_INPUT.addEventListener('keydown', function(evt) {
@@ -62,4 +104,7 @@
     window.Global.Element.ELEMENTS_CONTAINER.addEventListener('click', removeElement);
     window.Global.Element.DO_SORT_BUTTON.addEventListener('click', changeDomBeforeSort);
     window.Global.Element.GENERATE_RANDOM_BUTTON.addEventListener('click', generateRandom);
+    window.Global.Element.STOP_SORT_BUTTON.addEventListener('click', stopSorting);
+    window.Global.Element.PAUSE_SORT_BUTTON.addEventListener('click', pauseSorting);
+    window.Global.Element.CONTINUE_SORT_BUTTON.addEventListener('click', continueSorting);
 }());
