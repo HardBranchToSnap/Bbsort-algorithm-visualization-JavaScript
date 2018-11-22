@@ -52,6 +52,7 @@
         window.Support.toggleCloseButtons();
         window.Support.toggleButtonsField();
         window.Support.toggleSortingOptions();
+
         // Запуск сортировки
         window.bbsort();
     };
@@ -77,6 +78,9 @@
         // Изменяем видимость элементов
         window.Support.toggleCloseButtons();
         window.Support.toggleButtonsField();
+        if(!window.Global.PAUSE_SORT_BUTTON){
+          window.Support.togglePauseContinue();
+        }
 
         breakSorting();
         window.Global.Data.paused = 0;

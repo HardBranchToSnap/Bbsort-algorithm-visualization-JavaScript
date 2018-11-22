@@ -102,12 +102,12 @@
         },
 
         toggleSortingOptions: function(){
-          window.Global.Element.SORTING_OPTIONS.classList.toggle('unvisible');
+          window.Global.Element.SORTING_OPTIONS.classList.toggle('hidden');
         },
 
         togglePauseContinue: function(){
-          window.Global.Element.CONTINUE_SORT_BUTTON.classList.toggle('unvisible');
-          window.Global.Element.PAUSE_SORT_BUTTON.classList.toggle('unvisible');
+          window.Global.Element.CONTINUE_SORT_BUTTON.classList.toggle('hidden');
+          window.Global.Element.PAUSE_SORT_BUTTON.classList.toggle('hidden');
         },
 
         changeSpeed: {

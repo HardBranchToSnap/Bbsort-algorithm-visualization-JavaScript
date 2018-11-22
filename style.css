@@ -2,13 +2,13 @@ body {
      margin: 0;
      padding: 0;
 }
- .hidden {
-     display: none;
-}
+
  .unvisible {
      margin-top: 5px;    
      visibility: hidden;
 }
+}
+
  .content {
      width: 100%;
      top: 0;
@@ -85,6 +85,7 @@ body {
 
 .sorting-options {
   text-align: center;
+  margin-top: 10px;
 }
 
 .speed {
@@ -154,10 +155,13 @@ body {
      box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-
 .github-button-container {
   position: absolute;
   bottom: 0;
   margin-left: 50%;
   margin-bottom: 10px;
+}
+
+ .hidden {
+     display: none;
 }
