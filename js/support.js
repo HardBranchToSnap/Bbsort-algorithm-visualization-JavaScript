@@ -54,8 +54,9 @@
 
                 var thisSpan = thisEl.querySelector('.el-span');
 
-                // Задаём фиксированную ширину
+                // Задаём фиксированную ширину колонки
                 thisEl.style.width = (thisSpan.offsetWidth) + 'px';
+                // Задаём правильные отступы спан-цифр
                 thisSpan.style.right = ((thisEl.offsetWidth - thisSpan.offsetWidth) / 2 ) + 'px';  
             });
         },
