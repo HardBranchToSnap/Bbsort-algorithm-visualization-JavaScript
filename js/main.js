@@ -44,7 +44,6 @@
         }
 
         rndArr.forEach(window.Support.addElement);
-        console.log(window.Global.Data.arr);
 
     };
 

@@ -43,17 +43,7 @@
     // Действия после сортировки
     doAfterSorting = function(ticks) {
         setTimeout(function() {
-            // Удаляем все элементы с DOM'а
-            window.Support.clearElements();
-
-            // Удаляем все свойства трансформаций у элементов
-            // и заново всё отрисовываем
-            window.Global.Data.arr.forEach(function(el) {
-                el.moved = 0;
-                window.Support.createElementSpan(el.value, el.domId);
-            });
-
-            window.Support.setSpansPropertyes();
+            window.Support.breakSorting();
             window.Support.toggleButtonsField();
             window.Support.toggleSortingOptions();
 

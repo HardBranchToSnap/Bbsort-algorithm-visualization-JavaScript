@@ -22,7 +22,6 @@
         }
         window.copySortedCouples = sortedCouples.slice('');
         window.finalSorted = window.Global.Data.arr;
-        //console.log(sortedCouples);
         window.action(sortedCouples);
     };
 }());
