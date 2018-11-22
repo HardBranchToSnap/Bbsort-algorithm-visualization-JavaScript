@@ -49,47 +49,32 @@
     };
 
     var changeDomBeforeSort = function() {
-        window.Support.toggleCloseButtons();
-        window.Support.toggleButtonsField();
-        window.Support.toggleSortingOptions();
+        if(window.Global.Data.arr.length > 0){
+          window.Support.toggleCloseButtons();
+          window.Support.toggleButtonsField();
+          window.Support.toggleSortingOptions();
 
-        // Запуск сортировки
-        window.bbsort();
-    };
-
-    var breakSorting = function(noCrossButton) {
-        // Удаляем все таймауты с функциями анимаций
-        window.Support.clearTimeouts();
-
-        // Удаляем все dom-сортировки
-        window.Support.clearElements();
-        
-        window.Global.Data.arr = window.Global.Data.nonsorted.slice('');
-
-        window.Global.Data.arr.forEach(function(el) {
-            el.moved = 0;
-            window.Support.createElementSpan(el.value, el.domId, noCrossButton);
-        });
-
-        window.Support.setSpansPropertyes();
+          if (window.Global.Element.PAUSE_SORT_BUTTON.classList.contains('hidden')){
+            window.Support.togglePauseContinue();
+          }
+          // Запуск сортировки
+          window.bbsort();
+        }
     };
 
     var stopSorting = function() {
         // Изменяем видимость элементов
         window.Support.toggleCloseButtons();
         window.Support.toggleButtonsField();
-        if(!window.Global.PAUSE_SORT_BUTTON){
-          window.Support.togglePauseContinue();
-        }
 
-        breakSorting();
+        window.Support.breakSorting();
         window.Global.Data.paused = 0;
         window.Support.toggleSortingOptions();
     };
 
     var pauseSorting = function() {
         window.Support.togglePauseContinue();
-        breakSorting(true);
+        window.Support.breakSorting(true);
     };
 
     var continueSorting = function() {

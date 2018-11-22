@@ -77,6 +77,23 @@
             }
         },
 
+        breakSorting: function(noCrossButton) {
+            // Удаляем все таймауты с функциями анимаций
+            window.Support.clearTimeouts();
+
+            // Удаляем все dom-сортировки
+            window.Support.clearElements();
+            
+            window.Global.Data.arr = window.Global.Data.nonsorted.slice('');
+
+            window.Global.Data.arr.forEach(function(el) {
+                el.moved = 0;
+                window.Support.createElementSpan(el.value, el.domId, noCrossButton);
+            });
+
+            window.Support.setSpansPropertyes();
+        },
+
         /* Переключатели видимости элементов */
         toggleCloseButtons: function() {
             var closeButtons = document.querySelectorAll('.delete');
